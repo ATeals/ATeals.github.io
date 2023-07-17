@@ -5,14 +5,14 @@ export default () => {
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `(function() {
-                            if(window.matchMedia("(prefers-color-scheme: dark)").matches && localStorage.getItem("darkMode") !== "false" ){
-                                localStorage.setItem("darkMode", "true");
+                            if(window.matchMedia("(prefers-color-scheme: dark)").matches && localStorage.getItem("isDark") !== "false" ){
+                                localStorage.setItem("isDark", "true");
                             } 
-                            if (localStorage.getItem("darkMode") === "true") {
+                            if (localStorage.getItem("isDark") === "true") {
                                 document.querySelector("html").classList.toggle("dark");
                             }
-                            if (localStorage.getItem("darkMode") === null) {
-                                localStorage.setItem("darkMode", false);
+                            if (localStorage.getItem("isDark") === null) {
+                                localStorage.setItem("isDark", false);
                             }
                            
                       })()`,

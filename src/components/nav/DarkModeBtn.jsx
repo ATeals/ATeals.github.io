@@ -1,48 +1,44 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-export default () => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
-    const modeToggle = () => {
-        document.querySelector("html").classList.toggle("dark");
-        setIsDarkMode((i) => !i);
+const DarkButton = () => {
+    const [isDark, setIsDark] = useState(undefined);
+    const onClick = () => {
+        setIsDark((i) => !i);
     };
+
     useEffect(() => {
-        if (localStorage.getItem("darkMode") === "true") {
-            setIsDarkMode(localStorage.getItem("darkMode"));
+        if (isDark !== undefined) {
+            if (isDark) {
+                document.querySelector("html")?.classList.add("dark");
+                localStorage.setItem("isDark", "true");
+            } else {
+                document.querySelector("html")?.classList.remove("dark");
+                localStorage.setItem("isDark", "false");
+            }
+        } else {
+            if (localStorage.getItem("isDark") === "true") setIsDark(true);
+            else if (window.matchMedia("(prefers-color-scheme: dark)").matches && localStorage.getItem("isDark") !== "false") setIsDark(true);
+            else setIsDark(false);
         }
-    }, []);
-
-    useLayoutEffect(() => {
-        localStorage.setItem("darkMode", isDarkMode);
-    }, [isDarkMode]);
-
+    }, [isDark]);
     return (
         <>
-            {isDarkMode ? (
-                // <FontAwesomeIcon
-                //     icon={faSun}
-                //     size="2x"
-                //     className="ml-[10px]"
-                //     onClick={modeToggle}
-                // />
-                <i
-                    className="bi bi-brightness-high text-[20px]"
-                    onClick={modeToggle}
-                ></i>
-            ) : (
-                // <FontAwesomeIcon
-                //     icon={faMoon}
-                //     size="2x"
-                //     className="ml-[10px]"
-                //     onClick={modeToggle}
-                // />
-                <i
-                    className="bi bi-moon text-[20px]"
-                    onClick={modeToggle}
-                ></i>
-            )}
+            {isDark !== undefined &&
+                (isDark ? ( //
+                    <i
+                        className="bi bi-brightness-high text-2xl"
+                        onClick={onClick}
+                    ></i>
+                ) : (
+                    <i
+                        className="bi bi-moon text-2xl"
+                        onClick={onClick}
+                    ></i>
+                ))}
         </>
     );
 };
+
+export default DarkButton;
