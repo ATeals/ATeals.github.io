@@ -1,4 +1,4 @@
-import { Post } from ".contentlayer/generated";
+import { Post } from "contentlayer/gererated";
 
 import { elapsedTime } from "@/util/formatTime";
 import Link from "next/link";
