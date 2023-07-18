@@ -1,4 +1,5 @@
-name: Build and Deploy
+name: GitHub Pages Deploy
+
 on:
     push:
         branches:
@@ -8,24 +9,16 @@ jobs:
     build-and-deploy:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout
-              uses: actions/checkout@v2.3.1
-              with:
-                  persist-credentials: false
+            - name: Checkout 🛎️
+              uses: actions/checkout@v3
 
-            - name: Install and Build
-              uses: actions/setup-node@v1
-            - run: npm install
-            - run: npm run build
-            - run: npm run export
-              env:
-                  CI: true
-                  DEPLOY_TARGET: gh-pages
-            - run: touch out/.nojekyll
+            - name: Install and Build 🔧
+              run: |
+                  npm install
+                  npm run build && touch ./out/.nojekyll
 
-            - name: Deploy
-              uses: JamesIves/github-pages-deploy-action@3.7.1
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@v4
               with:
-                  BRANCH: gh-pages # 배포될 브랜치
-                  FOLDER: out # 이 폴더에 있는 파일을 배포
-                  CLEAN: true # 배포 브랜치에 있는 파일들을 자동으로 삭제
+                  branch: gh-pages
+                  folder: out
