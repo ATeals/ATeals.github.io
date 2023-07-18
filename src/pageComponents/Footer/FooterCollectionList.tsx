@@ -7,7 +7,10 @@ export default () => {
             <h1 className="text-xl mb-5">Collection</h1>
             <ul>
                 {getCollectionAll.map((collection) => (
-                    <Link href={`/posts/${collection._raw.flattenedPath}`}>
+                    <Link
+                        key={collection._id}
+                        href={`/posts/${collection._raw.flattenedPath}`}
+                    >
                         <li className="mb-2">
                             <span>{collection.title}</span>
                         </li>
