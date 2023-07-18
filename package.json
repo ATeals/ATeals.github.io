@@ -8,7 +8,9 @@
         "export": "next export",
         "start": "next start",
         "lint": "next lint",
-        "sitemap": "ts-node --project tsconfig.node.json ./sitemap.config.ts"
+        "sitemap": "ts-node --project tsconfig.node.json ./sitemap.config.ts",
+        "predeploy": "npm run build && npm run export",
+        "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles"
     },
     "dependencies": {
         "@types/node": "20.2.5",
@@ -32,6 +34,7 @@
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.9",
         "@types/react-syntax-highlighter": "^15.5.7",
+        "gh-pages": "^5.0.0",
         "react-syntax-highlighter": "^15.5.0"
     }
 }

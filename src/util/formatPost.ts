@@ -1,8 +1,6 @@
 import { Post, allPosts } from "contentlayer/gererated";
 import { formatYearMonth } from "./formatTime";
 
-import * as Local from "contentlayer/source-files";
-
 export const getPostAll = allPosts.filter((i) => !i._raw.sourceFilePath.includes("/index.mdx")).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 export const TimeLines = Array.from(new Set(getPostAll.map((i) => formatYearMonth(i.date))));
