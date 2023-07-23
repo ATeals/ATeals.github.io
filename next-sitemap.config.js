@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: "https://tealslog.vercel.app/",
+    siteUrl: "https://ateals.github.io/",
     changefreq: "daily",
     priority: 0.7,
     sitemapSize: 7000,
