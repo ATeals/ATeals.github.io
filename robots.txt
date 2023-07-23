@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://tealslog.vercel.app/
+Host: https://ateals.github.io/
 
 # Sitemaps
-Sitemap: https://tealslog.vercel.app/sitemap.xml
+Sitemap: https://ateals.github.io/sitemap.xml
