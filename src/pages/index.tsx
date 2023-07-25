@@ -16,7 +16,9 @@ export default () => {
                     <h1>
                         <strong className="text-blue">쇠오리</strong>로 활동하고 있는 김민우입니다.
                     </h1>
-                    <h1>아는 건 별로 없는데 최신 기술만 좋아하는 개발 지망생 입니다.</h1>
+                    <h1>
+                        맛있는 <strong className="text-blue">코드</strong>를 작성하기 위해 재료를 보관하는 창고입니다.
+                    </h1>
                 </section>
             </section>
             <TimeLine />
