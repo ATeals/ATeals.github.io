@@ -4,7 +4,7 @@ import { ul, li, ol } from "./tagController/list";
 import { p, strong, em } from "./tagController/text";
 import { table, td, th, tr } from "./tagController/table";
 import { code, pre } from "./tagController/code";
-import { a } from "./tagController/LinkBlock";
+import { a, del } from "./tagController/LinkBlock";
 
 // function aside({ node, children, ...props } :any)  {
 //     return (
@@ -36,6 +36,7 @@ const tagList = {
     em,
     code,
     hr,
+    del,
 };
 
 export default tagList;
